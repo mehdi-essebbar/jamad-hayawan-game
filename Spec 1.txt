@@ -1,0 +1,85 @@
+Game: Jamad Hayawan
+Exemple de jeu
+
+Mehdi
+******
+
+Prénom: Ahmad
+Animal: Antilope
+Objet: Anneau
+Légume: Antille
+.
+.
+
+Fatima
+******
+
+Prénom: Amal (5sec)
+Animal: Autriche (10 sec)
+Objet: Armoir (8 sec)
+Légume: Arachide (5 sec)
+.
+.
+
+**********************************************************************
+**********************************************************************
+
+֎ Etapes du jeu
+
+1) choix des lettres
+2) début du jeu
+3) Ecrire les noms pour les différents type de choses
+	- Objet, Animal, Prénom, Métier, Légume, Fruit, Type de construction, Artiste, etc
+4) Fin du jeu, affichage du score.
+5) Recommencer une nouvelle partie
+
+֎ Déroulement du jeu:
+
+-> choix de la lettre aléatoire 
+
+-> chaque type d'objet est régis par un timer fixé au début puis le jeu passe au prochain type. (exemple: Animal (10 seconde) -> Objet (10 seconde) -> etc)
+
+-> La réponse est validé (le temps de réponse est inclu dans le score). Exemple, si je répond Saumon pour Animal, je valide avant la fin du timer (10 sec).
+
+-> Le jeu terminé, le score est calculé puis le vainqueur est félicité avec un message et une animation pour célébré son succès.
+
+-> Possibilité de recommencer le jeu
+
+֎ Paramétrage du jeu:
+
+-> durée du timer (choix entre quelque possibilité: 10, 30, 60, 90 secondes)
+
+-> choix des types d'objet  (cochet les options disponibles, au moins 6)
+	√ Objet 
+	√ Animal
+	√ Prénom
+	√ Métier
+	√ Légume
+	√ Fruit
+	Type de construction
+	Artiste
+	Acteur
+	Personnalité politique
+	etc
+
+-> choix de la langue
+	English, French, Arabic
+
+-> Mode rigide ou flexible:
+	accepter les mots correctement écris (fléxible) ou bien les rejeté si l'orthographe n'est pas bon (rigide).
+
+-> Choix du nombre de lettres inclus dans le mot
+
+֎ Calcul du score:
+
+Validation des mots automatiquement.
+La contestation d'une réponse. Exemple: le mot inscrit est "Autrish" plutôt que "Autriche", le système automatique peut proposé une correction au moment de validation ou bien faire la validation manuelle durant le passage d'un type de mot vers un autre.
+
+Equation de calcul du score:
+	score = 100 * ∑ (temps de validation enregistré) / (temps de validation)
+	
+	exemple: 
+		score = 100 * (5/10 + 10/10 + 8/10 + 5/10)
+			  = 280
+			  
+	=> possibilité d'inclure la longueur du mot comme facteur dans le score (exemple: Armoir est moins importante que A
