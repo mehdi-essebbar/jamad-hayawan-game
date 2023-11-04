@@ -1,0 +1,131 @@
+Spec 2 (technique)
+-----------------
+
+Les objets:
+	GameManager (static)
+		[properties]
+			List<Game> games
+			
+		[methods]
+			initiateGame(): guid
+			loadDefaultConfiguration: Configuration
+			joinGame(guid): boolean
+			editConfiguration(guid, configuration): boolean
+			startGame(guid): char
+			restartGame(guid): boolean
+			validateWord(guid gameId, int playerId, string word): void
+			contestWord(guid gameId, int playerId, string word): void
+			stopGame(guid): 
+			computeScores(): Score
+			
+	Game (public)
+		[properties]
+		- Guid gameId
+		- Player masterPlayer
+		- Player secondPlayer
+		- Configuration config
+		- char currentLetter
+		- List<Word> masterPlayerWords
+		- List<Word> secondPlayerWords
+		
+		[methods]
+		- validateWord(int playerId, string word): void
+		- contestWord(int playerId, string word): void
+		- computeScore(): Score
+	
+	Word
+		WordStateEnum state
+		String word
+		
+	Score
+		- int masterPlayerScore
+		- int secondPlayerScore
+		
+	WordStateEnum
+		Valid	0
+		Contested 1	
+		
+	PlayeEnum
+		Master	0
+		Second	1
+	
+	RoundDurationEnum
+		None	0
+		Ten		1
+		Thirty	2
+		Sixty	3
+		Ninty	4
+	
+	ObjectTypesEnum
+		None		0
+		Country		1
+		City		2
+		State		3
+		
+		MaleName	4
+		FemaleName	5
+		Animal		6
+		Insect		7
+		Job			8
+		
+		Fruit		9
+		Vegetable	10
+		
+		Movie		11
+		
+	LanguageEnum
+		French		0
+		English		1
+		Arabic		2
+		
+	Player (public)
+		- PlayeEnum player
+		- string name
+		- base64 profilePicture
+		
+	Configuration (public)
+		RoundDurationEnum		duration= 0
+		LanguageEnum			language= 1
+		List<ObjectTypesEnum> 	types	= [0, 1, 2, 3, 4, 5, 6]
+		int						numberOfLetters	= 1
+		
+		
+Data:
+	
+	
+Les endpoints:
+
+	createGame
+		Créer un jeu, initiation des joueurs et de la configuration
+
+	joinGame
+		Ajouter un joueur à un jeu
+
+	editConfiguration
+		modifie la configuration d'un jeu 
+
+	startGame
+		Lancer le jeu (seul le créateur du jeu peut le commencer)
+	
+	restartGame
+		Recommencer le jeu
+	
+	stopGame
+		Arrêter le jeu
+	
+	quitGame
+		quitter le jeu
+	
+	validateWord
+		Valider un mot manuellement
+	
+	contestWord
+		Contester un mot
+	
+	showScores
+		Afficher les scores de chaque joueur
+
+
+
+
+
